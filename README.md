@@ -20,15 +20,15 @@
 #### `404.js`
 #### `error.js`
 
-#### Lab Quesions
-* Currently, the client is just sending us an object containing the username and password to us, which is why we can just pass along (req.body). What is a better way to do this? 
-   * The client should encrypt the password using basic auth.
+#### Quesions
+*  Currently, the client is just sending us an object containing the username and password to us, which is why we can just pass along (req.body). What is a better way to do this?
+   * Basic access authentication would be a better way: In basic HTTP authentication, a request contains a header field in the form of Authorization: Basic <credentials>, where credentials is the base64 encoding of id and password joined by a single colon :.
 
 * What are the pros and cons of setting res.cookie?
-   * The use of cookies places trust on the client side. Not all browsers support cookies and users have the option to enable or disable cookies. They do not require server resources. Cookies can persist for long periods of time (days, months, years). Easily manageable. 
-
+    * We're storing token in cookie so that user doesn't need to provide his credentials again to navigate through the website. Not sure about down-side in this particular case. 
+   
 * What does .isModified do and why do we use it?
-   * Checks if a password is entered. If so, hash the password using bcrypt
+   * .isModified is mangoos method to check if record was modified. We're checking it to see if we need to ecrypt (hash) it.  
 
 ### Setup
 
