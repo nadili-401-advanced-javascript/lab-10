@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const MongoMemoryServer = require('mongodb-memory-server').default;
 const supertest = require('supertest');
 
+
 let mongoServer;
 
 let supertester = (module.exports = {});
@@ -28,7 +29,7 @@ supertester.startDB = async () => {
   const mongooseOptions = {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   };
 
   await mongoose.connect(mongoUri, mongooseOptions, err => {
