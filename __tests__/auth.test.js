@@ -2,6 +2,8 @@
 
 const supertester = require('./supertester.js');
 const Users = require('../lib/models/users-model.js');
+const app = require('../lib/server.js');
+const supertest = require('supertest');
 
 // === Mock Database Setup ============================================
 
@@ -36,8 +38,23 @@ afterAll(supertester.stopDB);
 
 // === Your Test Code =================================================
 
-/* describe('test', () => {
-  it('does something', () => {
-    
+ describe('test', () => {
+  // it('can successfully sign in as sarah', async () => {
+  //   let res = await fakeServer
+  //     .post('/signin')
+  //     .send({ username: 'sarah', password: 'sarahpassword'});
+
+  //   expect(res).toBeDefined();
+  // }); 
+  
+
+  it('cannot successfully sign in as sarah', async () => {
+   let data = { username: 'harry', password: 'potter'}; //pass?
+  let res =  await supertest(app)
+     .post('/signin')
+     .send(data);
+     expect(user.status).toBe(200);
+     expect(res).toBeDefined();
   }); 
-}); */
+}); 
+
