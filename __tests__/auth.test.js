@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 'use strict';
 
 const supertester = require('./supertester.js');
@@ -19,7 +21,7 @@ const supertest = require('supertest');
 let userData = {
   admin: { username: 'sarah', password: 'sarahpassword', role: 'admin' },
   editor: { username: 'bill', password: 'billpassword', role: 'editor' },
-  user: { username: 'rene', password: 'renepassword', role: 'user' }
+  user: { username: 'rene', password: 'renepassword', role: 'user' },
 };
 
 let users = new Users();
@@ -38,7 +40,7 @@ afterAll(supertester.stopDB);
 
 // === Your Test Code =================================================
 
- describe('test', () => {
+describe('test', () => {
   // it('can successfully sign in as sarah', async () => {
   //   let res = await fakeServer
   //     .post('/signin')
@@ -49,12 +51,12 @@ afterAll(supertester.stopDB);
   
 
   it('cannot successfully sign in as sarah', async () => {
-   let data = { username: 'harry', password: 'potter'}; //pass?
-  let res =  await supertest(app)
-     .post('/signin')
-     .send(data);
-     expect(user.status).toBe(200);
-     expect(res).toBeDefined();
+    let data = { username: 'harry', password: 'potter'}; //pass?
+    let res =  await supertest(app.app)
+      .post('/signin')
+      .send(data);
+    expect(res.status).toBe(200);
+    expect(res).toBeDefined();
   }); 
 }); 
 

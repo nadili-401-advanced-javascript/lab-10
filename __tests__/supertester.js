@@ -29,7 +29,7 @@ supertester.startDB = async () => {
   const mongooseOptions = {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   };
 
   await mongoose.connect(mongoUri, mongooseOptions, err => {

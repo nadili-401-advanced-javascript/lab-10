@@ -1,4 +1,2 @@
 node_modules/**
-server.js
-supertester.js
-server.test.js
+__test__/**
